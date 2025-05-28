@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Enhanced Contact Form & Smart To-Do List</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🌟 Contact & Motivation</h1>
+    <form id="contactForm" class="contact-form" novalidate>
+        <div class="form-group">
+            <input type="text" id="name" name="name" required placeholder=" " />
+            <label for="name">Full Name *</label>
+        </div>
+        <div class="form-group">
+            <input type="email" id="email" name="email" required placeholder=" " />
+            <label for="email">Email Address *</label>
+        </div>
+        <div class="form-group">
+            <textarea id="message" name="message" rows="4" placeholder=" "></textarea>
+            <label for="message">Your Message</label>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">
+            <div class="loading-spinner"></div>
+            <span class="btn-text">Send Message</span>
+        </button>
+        <div class="error-msg message" id="formError"></div>
+        <div class="success-msg message" id="formSuccess"></div>
+    </form>
+    </div>
+
+<div class="todo-section">
+    <h2>📝 Smart To-Do List</h2>
+    
+    <div id="unlockMessage" class="unlock-message">
+        <div class="unlock-icon">🔒</div>
+        <h3>Complete the contact form to unlock your productivity dashboard!</h3>
+        <p>Fill out the form on the left to access your personal task manager with advanced features.</p>
+    </div>
+
+    <div id="todoInterface" style="display: none;">
+        <div class="todo-stats">
+            <div class="stat-item">
+                <span class="stat-number" id="totalTasks">0</span>
+                <span>Total</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="pendingTasks">0</span>
+                <span>Pending</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="completedTasks">0</span>
+                <span>Done</span>
+            </div>
+        </div>
+
+        <div class="todo-input-container">
+            <input type="text" id="todoInput" placeholder="What needs to be done?" maxlength="100" />
+            <button id="addBtn">Add Task</button>
+        </div>
+
+        <div class="todo-lists">
+            <div class="list-section">
+                <div class="list-label">
+                    ⏳ Pending Tasks
+                    <span class="task-count" id="pendingCount">0</span>
+                </div>
+                <ul id="pendingList"></ul>
+                <div id="noPendingMsg" style="text-align: center; opacity: 0.6; font-style: italic; display: none;">
+                    No pending tasks. Great job! 🎉
+                </div>
+            </div>
+
+            <div class="list-section">
+                <div class="list-label">
+                    ✅ Completed Tasks
+                    <span class="task-count" id="completedCount">0</span>
+                </div>
+                <ul id="completedList"></ul>
+                <div id="noCompletedMsg" style="text-align: center; opacity: 0.6; font-style: italic;">
+                    Completed tasks will appear here
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="planner-section">
+    <h2>🎯 Daily Task Planner</h2>
+    <div id="plannerUnlockMessage" class="unlock-message">
+        <div class="unlock-icon">🔒</div>
+        <h3>Unlock the planner by completing the contact form!</h3>
+        <p>Set daily task goals and track your progress here.</p>
+    </div>
+
+    <div id="plannerInterface" style="display: none;">
+        <div class="planner-input-container">
+            <input type="number" id="dailyTargetInput" placeholder="Daily target (e.g., 5)" min="0" />
+            <button id="setTargetBtn">Set Target</button>
+        </div>
+        <div class="planner-progress todo-stats">
+            <div class="stat-item">
+                <span class="stat-number" id="dailyCompletedCount">0</span>
+                <span>Completed Today</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="dailyTargetCount">0</span>
+                <span>Daily Target</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="dailyProgressPercentage">0%</span>
+                <span>Progress</span>
+            </div>
+        </div>
+        <div class="message" id="plannerMessage"></div>
+    </div>
+</div>
+
+<div class="modal-container" id="customModal">
+    <div class="modal-content">
+        <p id="modalMessage"></p>
+        <button id="modalCloseButton">OK</button>
+    </div>
+</div>
+
+<script src="scripts.js"></script>
+
+</body>
+</html>
