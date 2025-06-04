@@ -1,2 +1,2 @@
-# WEBD
-working with web development 
+# webdpractice
+Exploring with web d
