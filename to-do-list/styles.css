@@ -1,0 +1,537 @@
+/* Inter font import for consistency and modern look */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif; /* Changed to Inter */
+    background: linear-gradient(135deg, #ff6b6b, #ffa500, #ccfd7f, #32cd32, #00bfff, #8a2be2, #ff69b4);
+    background-size: 1400% 1400%;
+    color: #333333; /* Changed to dark gray for better contrast */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+    animation: colorFlow 30s ease-in-out infinite;
+}
+
+@keyframes colorFlow {
+    0% { background-position: 0% 50%; }
+    14.28% { background-position: 16.66% 50%; }
+    28.56% { background-position: 33.33% 50%; }
+    42.84% { background-position: 50% 50%; }
+    57.12% { background-position: 66.66% 50%; }
+    71.4% { background-position: 83.33% 50%; }
+    85.68% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container, .todo-section, .planner-section { /* Added planner-section */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 420px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover, .todo-section:hover, .planner-section:hover { /* Added planner-section */
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.container h1, .todo-section h2, .planner-section h2 { /* Added planner-section */
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #000000; /* Changed to black */
+    /* Removed background-clip and -webkit-text-fill-color */
+    user-select: none;
+}
+
+/* Enhanced floating label form */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1.2rem 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #333333; /* Changed to dark gray */
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+}
+
+.form-group label {
+    position: absolute;
+    top: 1.2rem;
+    left: 1rem;
+    color: rgba(51, 51, 51, 0.7); /* Changed to dark gray with transparency */
+    font-weight: 500;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
+    top: -0.5rem;
+    left: 0.8rem;
+    background: rgba(255, 255, 255, 0.9);
+    color: #4c1d95;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: transparent;
+}
+
+.form-group input:invalid:not(:focus):not(:placeholder-shown) {
+    border-color: #f87171;
+    box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.1);
+}
+
+.form-group input:valid:not(:focus):not(:placeholder-shown),
+.form-group textarea:valid:not(:focus):not(:placeholder-shown) {
+    border-color: #34d399;
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+    color: white; /* Kept white for contrast on button */
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
+    display: flex; /* For spinner alignment */
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.submit-btn .loading-spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white; /* Kept white for contrast */
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 0.5rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.message {
+    padding: 1rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.error-msg {
+    background: rgba(248, 113, 113, 0.2);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    color: #fecaca;
+}
+
+.success-msg {
+    background: rgba(52, 211, 153, 0.2);
+    border: 1px solid rgba(52, 211, 153, 0.3);
+    color: #a7f3d0;
+}
+
+/* Enhanced To-Do styles */
+.todo-input-container {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+#todoInput, #dailyTargetInput { /* Combined styles */
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #333333; /* Changed to dark gray */
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#todoInput:focus, #dailyTargetInput:focus { /* Combined styles */
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+#todoInput:disabled, #dailyTargetInput:disabled { /* Combined styles */
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#addBtn, #setTargetBtn { /* Combined styles */
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white; /* Kept white for contrast on button */
+    border: none;
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+#addBtn:hover:not(:disabled), #setTargetBtn:hover:not(:disabled) { /* Combined styles */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+#addBtn:disabled, #setTargetBtn:disabled { /* Combined styles */
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.todo-stats, .planner-progress { /* Added planner-progress */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    font-size: 0.9rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fbbf24;
+}
+
+.todo-lists {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.list-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.list-label {
+    color: rgba(51, 51, 51, 0.9); /* Changed to dark gray with transparency */
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.task-count {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+ul::-webkit-scrollbar {
+    width: 6px;
+}
+
+ul::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+ul::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.task-item {
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 0.75rem;
+    padding: 1rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.task-item:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.task-item.completed {
+    opacity: 0.7;
+    background: rgba(52, 211, 153, 0.1);
+    border-color: rgba(52, 211, 153, 0.2);
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: rgba(51, 51, 51, 0.6); /* Changed to dark gray with transparency */
+}
+
+.task-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    flex-shrink: 0; /* Prevent shrinking */
+    appearance: none; /* Hide default checkbox */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.task-checkbox:checked {
+    background: #10b981;
+    border-color: #10b981;
+}
+
+.task-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Kept white for contrast on green background */
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.task-text {
+    flex: 1;
+    word-break: break-word;
+}
+
+.task-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.delete-btn {
+    background: rgba(239, 68, 68, 0.8);
+    border: none;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    color: white; /* Kept white for contrast on button */
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-btn:hover {
+    background: #ef4444;
+    transform: scale(1.1);
+}
+
+.unlock-message {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    color: #333333; /* Changed to dark gray */
+}
+
+.unlock-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+}
+
+/* User ID display */
+#userIdDisplay {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(51, 51, 51, 0.7); /* Changed to dark gray with transparency */
+    word-break: break-all; /* Allow long IDs to break */
+}
+
+/* Custom Modal Styles */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none; /* Hidden by default */
+}
+
+.modal-content {
+    background: rgba(75, 0, 130, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(161, 99, 255, 0.7);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    color: #ede7f6; /* Kept light for contrast on dark modal background */
+    font-size: 1.1rem;
+}
+
+#modalMessage {
+    margin-bottom: 1.5rem;
+}
+
+#modalCloseButton {
+    background: linear-gradient(45deg, #a163ff, #6200ee);
+    color: white; /* Kept white for contrast on button */
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#modalCloseButton:hover {
+    background: linear-gradient(45deg, #6200ee, #a163ff);
+    transform: scale(1.05);
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0.5rem;
+        gap: 1.5rem;
+        flex-direction: column; /* Stack containers vertically on small screens */
+        align-items: center; /* Center items when stacked */
+    }
+
+    .container, .todo-section, .planner-section { /* Added planner-section */
+        padding: 2rem 1.5rem;
+        max-width: none; /* Remove max-width constraint */
+    }
+
+    .todo-input-container, .planner-input-container { /* Added planner-input-container */
+        flex-direction: column;
+    }
+
+    #addBtn, #setTargetBtn { /* Combined styles */
+        width: 100%;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-item {
+    animation: fadeInUp 0.3s ease;
+}
+
+/* Success celebration animation */
+@keyframes celebrate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); } /* Reduced scale for subtle effect */
+    100% { transform: scale(1); }
+}
+
+.celebrating {
+    animation: celebrate 0.6s ease;
+}
