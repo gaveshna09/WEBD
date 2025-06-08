@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tech Arsenal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <canvas id="matrixCanvas"></canvas>
+
+    <div class="bg-animation">
+        <div class="floating-orb orb1"></div>
+        <div class="floating-orb orb2"></div>
+        <div class="floating-orb orb3"></div>
+    </div>
+
+    <div id="action-buttons-container">
+        <button id="control-hub-button" class="action-button-fixed">🧐</button>
+
+        <button id="theme-toggle" class="action-button-fixed">🌙</button>
+        <button id="profile-button" class="action-button-fixed">👤</button>
+        
+        <button id="learn-tools-button" class="action-button-fixed">📚</button>
+        <button id="tech-news-button" class="action-button-fixed">📰</button>
+    </div>
+
+    <section id="welcome-section" class="welcome-container active">
+        <span class="exclusive-badge">Exclusive Access</span>
+        <h1>AI Tech Arsenal</h1>
+        <p>Discover cutting-edge AI tools, connect with a vibrant community, and elevate your tech journey. Your future in AI starts here.</p>
+        <a href="#" id="get-started-button">Get Started</a>
+        <p class="developer-credit">Developed by L GAVESHNA </p> </section>
+
+    <section id="form-section" class="form-section hidden">
+        <form id="user-form" class="glass-container">
+            <h2>Your Profile</h2>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" placeholder="+1234567890">
+            </div>
+            <div class="form-group">
+                <label for="github">GitHub Profile (Optional):</label>
+                <input type="url" id="github" name="github" placeholder="https://github.com/yourprofile">
+            </div>
+            <div class="form-group">
+                <label for="portfolio">Portfolio/Website (Optional):</label>
+                <input type="url" id="portfolio" name="portfolio" placeholder="https://yourportfolio.com">
+            </div>
+            <div class="form-group">
+                <label for="linkedin">LinkedIn Profile (Optional):</label>
+                <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+            </div>
+            <button type="submit">Save Profile</button>
+        </form>
+    </section>
+
+    <section id="profile-section" class="profile-section hidden">
+        <div class="glass-container">
+            <h2>Welcome, <span id="profile-name"></span>!</h2>
+            <div class="profile-details">
+                <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                <p><strong>Phone:</strong> <span id="profile-phone"></span></p>
+                <p><strong>GitHub:</strong> <a id="profile-github" href="#" target="_blank" rel="noopener noreferrer"></a></p>
+                <p><strong>Portfolio:</strong> <a id="profile-portfolio" href="#" target="_blank" rel="noopener noreferrer"></a></p>
+                <p><strong>LinkedIn:</strong> <a id="profile-linkedin" href="#" target="_blank" rel="noopener noreferrer"></a></p>
+            </div>
+            <h3>Your Favorite Tools</h3>
+            <div id="favorite-list" class="product-list">
+                </div>
+            <button id="view-tools-button" class="action-button">View All AI Tools</button>
+        </div>
+    </section>
+
+    <section id="product-section" class="product-section hidden">
+        <h2 class="section-title">Explore the Arsenal</h2>
+        <div class="filters">
+            <select id="categoryFilter">
+                <option value="">All Categories</option>
+                <option value="developer-tools">Developer Tools</option>
+                <option value="ui-ux-design">UI/UX Design</option>
+                <option value="ai-tools">AI Tools</option>
+                <option value="api-tools">API Tools</option>
+                <option value="limited-edition">Limited Edition</option>
+            </select>
+            <select id="priceFilter">
+                <option value="">All Prices</option>
+                <option value="free">Free</option>
+                <option value="0-500">Under ₹500</option>
+                <option value="501-2000">₹501 - ₹2000</option>
+                <option value="2001-10000">₹2001 - ₹10000</option>
+                <option value="10001-999999">Over ₹10000</option>
+            </select>
+        </div>
+        <div id="all-products-list" class="product-list">
+            <div class="product-card">
+                <button class="favorite-button" data-product-id="DevKit Pro">❤️</button>
+                <img src="https://via.placeholder.com/120?text=DevKit" alt="DevKit Pro Icon">
+                <h3>DevKit Pro</h3>
+                <div class="category">Developer Tools</div>
+                <div class="price">₹7,500</div>
+                <div class="rating">Rating: 4.8 ★</div>
+                <p class="description">Comprehensive toolkit for full-stack AI development, helping you write, debug, and optimize code faster.</p>
+                <a href="https://www.devkitpro.org/" target="_blank" class="know-more">KNOW MORE</a>
+            </div>
+            <div class="product-card">
+                <button class="favorite-button" data-product-id="Brainwave Studio">❤️</button>
+                <img src="https://via.placeholder.com/120?text=Brainwave" alt="Brainwave Studio Icon">
+                <h3>Brainwave Studio</h3>
+                <div class="category">UI/UX Design</div>
+                <div class="price">₹1,500</div>
+                <div class="rating">Rating: 4.5 ★</div>
+                <p class="description">Intuitive AI-powered UI/UX design assistant. Generate stunning UI/UX designs from simple text prompts. Perfect for rapid prototyping.</p>
+                <a href="https://www.example.com/brainwave-studio" target="_blank" class="know-more">KNOW MORE</a>
+            </div>
+            <div class="product-card">
+                <button class="favorite-button" data-product-id="Quantum API">❤️</button>
+                <img src="https://via.placeholder.com/120?text=Quantum" alt="Quantum API Icon">
+                <h3>Quantum API</h3>
+                <div class="category">AI Tools</div>
+                <div class="price">₹500</div>
+                <div class="rating">Rating: 4.7 ★</div>
+                <p class="description">Advanced AI platform for data analysis, predictive modeling, and intelligent insights.</p>
+                <a href="https://www.example.com/quantum-api" target="_blank" class="know-more">KNOW MORE</a>
+            </div>
+            <div class="product-card">
+                <button class="favorite-button" data-product-id="Aether Data">❤️</button>
+                <img src="https://via.placeholder.com/120?text=Aether" alt="Aether Data Icon">
+                <h3>Aether Data</h3>
+                <div class="category">API Tools</div>
+                <div class="price">₹9,000</div>
+                <div class="rating">Rating: 4.9 ★</div>
+                <p class="description">Streamline API integrations and workflows with AI-powered automation. No more manual coding!</p>
+                <a href="https://www.example.com/aether-data" target="_blank" class="know-more">KNOW MORE</a>
+            </div>
+            <div class="product-card">
+                <button class="favorite-button" data-product-id="Virtual Brainstorm">❤️</button>
+                <img src="https://via.placeholder.com/120?text=Brainstorm" alt="Virtual Brainstorm Icon">
+                <h3>Virtual Brainstorm</h3>
+                <div class="category">UI/UX Design</div>
+                <div class="price">Free</div>
+                <div class="rating">Rating: 4.5 ★</div>
+                <p class="description">Collaborative AI whiteboard for creative teams. Ideate, draw, and get AI suggestions.</p>
+                <a href="https://www.example.com/virtual-brainstorm" target="_blank" class="know-more">KNOW MORE</a>
+            </div>
+            <div class="product-card">
+                <button class="favorite-button" data-product-id="Quantum Compiler">❤️</button>
+                <img src="https://via.placeholder.com/120?text=Compiler" alt="Quantum Compiler Icon">
+                <h3>Quantum Compiler</h3>
+                <div class="category">Developer Tools</div>
+                <div class="price">₹10,000</div>
+                <div class="rating">Rating: 5 ★</div>
+                <p class="description">Cutting-edge compiler leveraging quantum principles for ultra-fast code execution.</p>
+                <a href="https://www.example.com/quantum-compiler" target="_blank" class="know-more">KNOW MORE</a>
+            </div>
+            <div class="product-card">
+                <button class="favorite-button" data-product-id="Sentient Chatbot SDK">❤️</button>
+                <img src="https://via.placeholder.com/120?text=Chatbot" alt="Sentient Chatbot SDK Icon">
+                <h3>Sentient Chatbot SDK</h3>
+                <div class="category">AI Tools</div>
+                <div class="price">₹5,000</div>
+                <div class="rating">Rating: 4.8 ★</div>
+                <p class="description">Develop highly intelligent chatbots with emotional intelligence. Integrates with any platform.</p>
+                <a href="https://www.example.com/sentient-chatbot" target="_blank" class="know-more">KNOW MORE</a>
+            </div>
+            <div class="product-card">
+                <button class="favorite-button" data-product-id="Cyber Security Guardian">❤️</button>
+                <img src="https://via.placeholder.com/120?text=Security" alt="Cyber Security Guardian Icon">
+                <h3>Cyber Security Guardian</h3>
+                <div class="category">AI Tools</div>
+                <div class="price">₹7,500</div>
+                <div class="rating">Rating: 4.9 ★</div>
+                <p class="description">AI-powered threat detection and prevention for your digital assets. Stay secure!</p>
+                <a href="https://www.example.com/cyber-security" target="_blank" class="know-more">KNOW MORE</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="learning-resources-section" class="product-section hidden">
+        <h2 class="section-title">Learn the Tools</h2>
+        <p class="section-description">Dive into tutorials, guides, and courses for mastering the AI tools in our arsenal.</p>
+        <div id="learning-resources-list" class="product-list">
+            </div>
+    </section>
+
+    <section id="tech-news-section" class="product-section hidden">
+        <h2 class="section-title">Latest Tech News</h2>
+        <p class="section-description">Stay updated with the newest trends and breakthroughs in AI and technology.</p>
+        <div id="news-articles-list" class="product-list">
+            <div id="news-loading-message" class="empty-favorites-message">Fetching the latest tech news...</div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
