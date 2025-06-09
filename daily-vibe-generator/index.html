@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Vibe Generator 🌸</title>
+    <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Daily Vibe Generator 🌸</h1>
+            <p>Get personalized advice that matches your energy</p>
+        </header>
+
+        <div class="main-content">
+            <div class="form-section">
+                <form id="vibeForm">
+                    <div class="form-group">
+                        <label for="userName">What's your name? ✨</label>
+                        <input type="text" id="userName" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userAge">Age (optional)</label>
+                        <input type="number" id="userAge" placeholder="How old are you?" min="13" max="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userLikes">What you're into (optional)</label>
+                        <textarea id="userLikes" placeholder="Music, books, hobbies, whatever makes you happy..." rows="2"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userDislikes">What's bugging you? (optional)</label>
+                        <textarea id="userDislikes" placeholder="Things that drain your energy..." rows="2"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>How are you feeling right now?</label>
+                        <div class="mood-selector">
+                            <div class="mood-btn" data-mood="happy">😊 Happy</div>
+                            <div class="mood-btn" data-mood="sad">😢 Sad</div>
+                            <div class="mood-btn" data-mood="stressed">😰 Stressed</div>
+                            <div class="mood-btn" data-mood="excited">🤩 Excited</div>
+                            <div class="mood-btn" data-mood="tired">😴 Tired</div>
+                            <div class="mood-btn" data-mood="confused">🤔 Confused</div>
+                            <div class="mood-btn" data-mood="annoyed">😤 Annoyed</div>
+                            <div class="mood-btn" data-mood="neutral">😐 Meh</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What kind of vibe do you need?</label>
+                        <div class="vibe-selector">
+                            <div class="vibe-btn" data-vibe="motivation">✨ Motivation</div>
+                            <div class="vibe-btn" data-vibe="peace">🧘 Peace</div>
+                            <div class="vibe-btn" data-vibe="focus">💡 Focus</div>
+                            <div class="vibe-btn" data-vibe="fun">🎉 Fun</div>
+                            <div class="vibe-btn" data-vibe="surprise">🎲 Surprise Me</div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="generate-btn">Generate My Vibe ✨</button>
+                </form>
+            </div>
+
+            <div class="advice-section">
+                <div id="adviceCard" class="advice-card hidden">
+                    <div class="advice-text" id="adviceText"></div>
+                    <div class="advice-category" id="adviceCategory"></div>
+                    <div class="advice-actions">
+                        <button class="action-btn" id="speakBtn">🔊 Hear It</button>
+                        <button class="action-btn" id="newAdviceBtn">🔄 New Advice</button>
+                        <button class="action-btn" id="saveBtn">❤️ Save</button>
+                    </div>
+                </div>
+
+                <div class="reactions-section hidden" id="reactionsSection">
+                    <button class="reaction-btn" id="moreBtn">🔁 Give me more!</button>
+                    <button class="reaction-btn" id="vibeBtn">😎 That's a vibe!</button>
+                    <button class="reaction-btn" id="thinkBtn">🤔 I'll think about it</button>
+                </div>
+
+                <div class="favorites-section">
+                    <button class="favorites-toggle" id="favoritesToggle">💜 My Saved Vibes</button>
+                    <div class="favorites-list" id="favoritesList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="data/advice.js"></script>
+    <script type="module" src="scripts/tts.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+</body>
+</html>
